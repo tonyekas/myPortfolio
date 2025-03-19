@@ -115,3 +115,53 @@ sr.reveal(`.home__scroll`, { delay: 800 });
 sr.reveal(`.work__card, .services__card`, { interval: 100 });
 sr.reveal(`.about__content`, { origin: "right" });
 sr.reveal(`.about__img`, { origin: "left" });
+
+// -------------------Below codes for change of theme to the background -------------
+
+// First option: code begins below:
+
+function toggleDarkMode() {
+  const body = document.body;
+  const button = document.getElementById("theme-toggle");
+
+  body.classList.toggle("dark-mode");
+
+  // Save user preference to local storage
+  if (body.classList.contains("dark-mode")) {
+    localStorage.setItem("theme", "dark");
+    button.textContent = "Toggle Light Mode";
+  } else {
+    localStorage.setItem("theme", "light");
+    button.textContent = "Toggle Dark Mode";
+  }
+}
+
+//  --------------------------------Second Option ---------------------
+// Second option ----------
+
+// #### Adding a theme setting for the webpage
+
+// Select the toggle button ==================== Code begins below
+
+const themeToggleBtn = document.getElementById("theme-toggle");
+
+// Check local storage for theme preference
+const currentTheme = localStorage.getItem("theme") || "light-theme";
+document.body.classList.add(currentTheme);
+
+// Function to switch themes
+function toggleTheme() {
+  const newTheme = document.body.classList.contains("light-theme")
+    ? "dark-theme"
+    : "light-theme";
+
+  // Remove the existing theme class and add the new one
+  document.body.classList.remove("light-theme", "dark-theme");
+  document.body.classList.add(newTheme);
+
+  // Save the user's preference to local storage
+  localStorage.setItem("theme", newTheme);
+}
+
+// Add event listener to the toggle button to change color of the background theme
+themeToggleBtn.addEventListener("click", toggleTheme);
