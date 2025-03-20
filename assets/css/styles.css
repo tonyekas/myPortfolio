@@ -890,3 +890,9 @@ img {
   background-color: #333;
   color: #fff;
 }
+
+.greeting {
+  font-size: 24px;
+  font-weight: bold;
+  color: whitesmoke;
+}

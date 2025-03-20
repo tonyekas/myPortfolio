@@ -165,3 +165,27 @@ function toggleTheme() {
 
 // Add event listener to the toggle button to change color of the background theme
 themeToggleBtn.addEventListener("click", toggleTheme);
+
+// ### - Greetings of the day - function:
+
+document.addEventListener("DOMContentLoaded", function () {
+  function getGreeting() {
+    let greeting;
+    const hour = new Date().getHours();
+
+    if (hour >= 5 && hour < 12) {
+      greeting = "Good Morning! ☀️";
+    } else if (hour >= 12 && hour < 17) {
+      greeting = "Good Afternoon! 🌤️";
+    } else if (hour >= 17 && hour < 21) {
+      greeting = "Good Evening! 🌆";
+    } else {
+      greeting = "Good Night! 🌙";
+    }
+
+    return greeting;
+  }
+
+  // Display the greeting on the webpage
+  document.getElementById("greetingText").textContent = getGreeting();
+});
